@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% block title %}Resensi buku{% endblock%}
+{% block content %}
+<center>
+<h3>Resensi buku </h3>
+
+<table style="width: auto" class="table table-striped">
+    <tr bgcolor='lightgrey'>
+        <td><b>No</b></td>
+        <td><b>Judul buku</b></td>
+        <td align="center"><b>Pengarang</b></td>
+
+    </tr>
+    {% for x in resensi %}
+    <tr>
+        <td>{{ forloop.counter }}</td>
+        <td><a href="detail_resensi/{{ x.id }}">{{ x.judul }}</a></td>
+        <td>{{x.pengarang }}</a></td>
+
+    </tr>
+    {% endfor %}
+    </table>
+</center>
+{% endblock%}

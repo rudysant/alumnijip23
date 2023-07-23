@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block title %}Info loker{% endblock%}
+{% block content %}
+<center>
+<h3>Daftar alumni berdasarkan angkatan </h3>
+
+<table style="width: auto" class="table table-striped">
+    <tr bgcolor='lightgrey'>
+        <td><b>Angkatan</b></td>
+        <td><b>Nama</b></td>
+        <td align="center"><b>Lulus</b></td>
+
+    </tr>
+    {% for x in detail_angkatan %}
+    <tr>
+        <td>{{x.angkatan }}</td>
+        <td><a href="/../alumni/detail_alumni/{{ x.id }}">{{ x.user.first_name }} {{ x.user.last_name }}</a></td>
+
+        <td>{{x.lulusan }}</td>
+
+    </tr>
+    {% endfor %}
+    </table>
+</center>
+{% endblock%}

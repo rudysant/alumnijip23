@@ -1,0 +1,82 @@
+{% extends 'base.html' %}
+{% block title %}Detail resensi{% endblock%}
+{% block content %}
+<!--
+<h3>Data lengkap</h3>
+<table>
+        <tr><td><img src='{{ detail_alumni.avatar.url }}'></td>
+            <td>{{detail_alumni.user.first_name }} {{ detail_alumni.user.last_name }}</td></tr>
+        <tr><td></td><td>{{ detail_alumni.angkatan }} - {{ detail_alumni.lulusan }}</td></tr>
+        <tr><td></td><td>{{ detail_alumni.bio }}</td></tr>
+
+    </table>
+
+
+<div class="row">
+  <div class="column left" style="background-color:#aaa;">
+    <img src='{{ detail_alumni.avatar.url }}'>
+  </div>
+  <div class="column middle" style="background-color:#bbb;">
+    <h2>{{detail_alumni.user.first_name }} {{ detail_alumni.user.last_name }}</h2>
+    <b>({{ detail_alumni.angkatan }} - {{ detail_alumni.lulusan }})</b><br>
+    <i>{{ detail_alumni.bio }}</i>
+  </div>
+</div> -->
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  max-width: 400px;
+  margin: auto;
+  text-align: center;
+  font-family: arial;
+}
+
+.title {
+  color: grey;
+  font-size: 18px;
+}
+
+button {
+  border: none;
+  outline: 0;
+  display: inline-block;
+  padding: 8px;
+  color: white;
+  background-color: #000;
+  text-align: center;
+  cursor: pointer;
+  width: 100%;
+  font-size: 18px;
+}
+
+a {
+  text-decoration: none;
+  font-size: 22px;
+  color: black;
+}
+
+button:hover, a:hover {
+  opacity: 0.7;
+}
+</style>
+<h2 style="text-align:center">Info lowongan pekerjaan</h2>
+<div class="card">
+  <br>
+   <p><b> {{ detail_loker.posisi }}</b></p>
+  <p>di {{detail_loker.instansi }}</p>
+  <p></p>
+  <p><pre> {{ detail_loker.deskripsi }} </pre></p>
+  <p>Tanggal batas :<b> {{ detail_loker.batas|date:'d/m/Y' }} </b></p>
+  <p style="text-align: right;"> =<i>{{ detail_loker.user }}</i>=</p>
+<!--
+  <div style="margin: 24px 0;">
+    <a href="#"><i class="fa fa-dribbble"></i></a>
+    <a href="#"><i class="fa fa-twitter"></i></a>
+    <a href="#"><i class="fa fa-linkedin"></i></a>
+    <a href="#"><i class="fa fa-facebook"></i></a>
+  </div>
+  <p><button>Contact</button></p>
+</div> -->
+{% endblock %}

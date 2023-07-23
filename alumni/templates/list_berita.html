@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% block title %}Berita alumni{% endblock%}
+{% block content %}
+<center>
+<h3>Event alumni </h3>
+
+<table style="width: auto" class="table table-striped">
+    <tr bgcolor='lightgrey'>
+        <td><b>No</b></td>
+        <td><b>Tanggal</b></td>
+        <td align="center"><b>Event</b></td>
+
+    </tr>
+    {% for x in berita %}
+    <tr>
+        <td>{{ forloop.counter }}</td>
+        <td>{{x.tanggal|date:"d/m/Y" }}</a></td>
+        <td><a href= "detail_berita/{{ x.id }}">{{ x.acara }}</a></td>
+
+    </tr>
+    {% endfor %}
+    </table>
+</center>
+{% endblock%}

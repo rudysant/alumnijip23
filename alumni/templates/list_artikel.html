@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block title %}Artikel alumni{% endblock%}
+{% block content %}
+<center>
+<h3>Artikel dari alumni </h3>
+
+<table style="width: auto" class="table table-striped">
+    <tr bgcolor='lightgrey'>
+        <td><b>No</b></td>
+        <td><b>Judul</b></td>
+
+    </tr>
+    {% for x in artikel %}
+    <tr>
+        <td>{{ forloop.counter }}</td>
+        <td><a href= "detail_artikel/{{ x.id }}">{{ x.judul }}</a></td>
+
+    </tr>
+    {% endfor %}
+    </table>
+</center>
+{% endblock%}

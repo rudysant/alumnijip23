@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% block title %}Daftar alumni{% endblock%}
+{% block content %}
+<center>
+<h3>Daftar alumni alfabetis</h3>
+<table style="width: auto" class="table table-striped">
+    <tr bgcolor='lightgrey'>
+        <td><b>No</b></td>
+        <td><b>Nama</b></td>
+        <td align="center"><b>Angkatan</b></td>
+        <td align="center"><b>Lulusan</b></td>
+    </tr>
+
+    {% for x in page %}
+    <tr>
+        <td>{{ forloop.counter0|add:page.start_index }}</td>
+        <td><a href="detail_alumni/{{ x.id }}">{{x.user.first_name }} {{ x.user.last_name }}</a></td>
+        <td align="center"><a href="detail_angkatan/{{ x.angkatan }}">{{ x.angkatan }}</td>
+        <td align="center">{{ x.lulusan }}</td>
+    </tr>
+
+    {% endfor %}
+
+    </table>
+
+<br>
+
+    {% if page.has_previous %}
+        <a href="?page={{ page.previous_page_number }}"> << Sebelumnya ... </a>
+    {% endif %}
+
+    <span class="current-page"><b>  {{ page.number }} </b>  </span>
+
+    {% if page.has_next %}
+        <a href="?page={{ page.next_page_number }}"> ... Berikutnya >> </a>
+    {% endif %}
+</center>
+{% endblock%}

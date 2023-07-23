@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% block title %}Info loker{% endblock%}
+{% block content %}
+<center>
+<h3>Lowongan pekerjaan </h3>
+
+<table style="width: auto" class="table table-striped">
+    <tr bgcolor='lightgrey'>
+        <td><b>No</b></td>
+        <td><b>Posisi</b></td>
+        <td align="center"><b>Batas</b></td>
+
+    </tr>
+    {% for x in loker %}
+    <tr>
+        <td>{{ forloop.counter }}</td>
+        <td><a href="detail_loker/{{ x.id }}">{{ x.posisi }}</a></td>
+        <td>{{x.batas|date:"d/m/Y" }}</a></td>
+
+    </tr>
+    {% endfor %}
+    </table>
+</center>
+{% endblock%}

@@ -1,0 +1,105 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-3">
+      <div class="stacked-div text-left">
+        <br><br>  <center>
+        <h4>Total alumni terdaftar</h4>
+            <h4>{{ total_alumni }} </h4>
+            <p>
+                <table style="width: auto;" class="table table-striped">
+                <tr bgcolor='lightgrey'>
+                <td><b>Angkatan</b></td>
+                <td align="center"><b>Jumlah</b></td>
+            </tr>
+    {% for x in angkatan %}
+    <tr>
+        <td><a href="alumni/detail_angkatan/{{ x.angkatan }}"><b>{{ x.angkatan }}</b></a></td>
+        <td align="center">{{ x.angkatancount }}</td>
+
+    </tr>
+    {% endfor %}
+    </table>
+    <hr><hr>
+      </div>
+      <div class="stacked-div">
+        <h4>Update !!</h4>
+
+            <p>
+            <h5>Baru bergabung:</h5>
+            <p><b><a href="alumni/detail_alumni/{{ nama_baru_daftar.id }}">{{ baru_daftar.first_name }} {{ baru_daftar.last_name }}</a></b> <i>({{ nama_baru_daftar.angkatan }} - {{ nama_baru_daftar.lulusan }})</i></p>
+            <hr>
+            <h5>Lowongan terbaru</h5>
+            <p><a href="list_loker/detail_loker/{{ baru_loker.id }}"><b>{{baru_loker.posisi }}</b></a> (maks. {{baru_loker.batas|date:'d/m/Y' }}) </p>
+      </div>
+      <hr><hr>
+      </center>
+    </div>
+
+<div class="col-md-9">
+      <div class="single-div text-center">
+       <br><br>   <center>
+        <h2>Profil Alumni</h2>
+{% load percent_aut %}
+<br><b>Tipe pekerjaan</b> || <a href="/alumni/pekerjaan-chart/">Grafik</a>
+<table style="width: auto;" class="table table-striped">
+                <tr bgcolor='lightgrey'>
+                <td><b>Tipe pekerjaan</b></td>
+                <td align="center"><b>Jumlah</b></td>
+                <td align="center"><b>Prosentase</b></td>
+            </tr>
+    {% for x in typekerjaan %}
+    <tr>
+        <td>{{ x.tempat_kerja }}</td>
+        <td align="center">{{ x.typepekerjaancount }}</td>
+        <td align="center">{{ x.typepekerjaancount|as_percentage_of:total_alumni }}</td>
+
+    </tr>
+    {% endfor %}
+    </table>
+
+<br><br><b>Tipe institusi</b> ||  <a href="/alumni/institusi-chart/">Grafik</a>
+<table style="width: auto;" class="table table-striped">
+                <tr bgcolor='lightgrey'>
+                <td><b>Tipe institusi</b></td>
+                <td align="center"><b>Jumlah</b></td>
+                <td align="center"><b>Prosentase</b></td>
+            </tr>
+    {% for x in typekantor %}
+    <tr>
+        <td>{{ x.jenis_instansi }}</td>
+        <td align="center">{{ x.typekantorcount }}</td>
+        <td align="center">{{ x.typekantorcount|as_percentage_of:total_alumni }}</td>
+
+    </tr>
+    {% endfor %}
+    </table>
+
+<br><br><b>Jabatan</b> || <a href="/alumni/jabatan-chart/">Grafik</a>
+<table style="width: auto;" class="table table-striped">
+                <tr bgcolor='lightgrey'>
+                <td><b>Jabatan</b></td>
+                <td align="center"><b>Jumlah</b></td>
+                <td align="center"><b>Prosentase</b></td>
+            </tr>
+    {% for x in jabatan %}
+    <tr>
+        <td>{{ x.jabatan }}</td>
+        <td align="center">{{ x.jabatancount }}</td>
+        <td align="center">{{ x.jabatancount|as_percentage_of:total_alumni }}</td>
+
+    </tr>
+    {% endfor %}
+    </table>
+
+
+      </div>
+    </div>
+  </div>
+  </center>
+</div>
+
+
+{% endblock %}
